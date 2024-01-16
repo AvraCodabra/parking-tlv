@@ -1,38 +1,67 @@
+/* Enhanced styling for the app */
+
 .App {
   text-align: center;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; /* Light grey background for the whole app */
+  color: #333; /* Dark grey text for better readability */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  min-height: 15vh; /* Slightly larger header */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(12px + 2vmin); /* Slightly larger text */
+  color: #fff; /* White text for contrast */
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3); /* Add shadow to header */
 }
 
-.App-link {
-  color: #61dafb;
+.parking-lot-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px; /* Add gap between cards */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.parking-lot-card {
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px;
+  margin: 10px;
+  width: 280px; /* Adjust width */
+  background-color: #fff; /* White background for cards */
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.15); /* Softer shadow */
+  transition: transform 0.3s, box-shadow 0.3s; /* Animate shadow and transform */
 }
+
+.parking-lot-card.free {
+  background-color: #35a247; /* Green for free */
+}
+
+.parking-lot-card.almostFull {
+  background-color: #ffc107; /* Orange for almost full */
+}
+
+.parking-lot-card.full {
+  background-color: #a4363f; /* Red for full */
+}
+
+.parking-lot-card:hover {
+  transform: translateY(-5px); /* Move card up slightly on hover */
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+.parking-lot-card h2 {
+  color: #1a1a1a; /* Use the header color for titles */
+  margin-bottom: 10px; /* Space below title */
+}
+
+.parking-lot-card p {
+  color: #333; /* Darker text for readability */
+  line-height: 1.6; /* Improve line spacing */
+}
+
+/* Add additional styles below as needed */

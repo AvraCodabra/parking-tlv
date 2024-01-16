@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import {getParkinglots} from "./ParkingLot";
+import './App.css'
 
 function App() {
+  const [parkingLots, setParkingLots] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchParkingData = async () => {
+      try {
+        const data = await getParkinglots({
+            lat:32.0873,
+            lon:34.7737,
+        }   );
+        setParkingLots(data);
+      } catch (error) {
+        console.error('Error fetching parking data:', error);
+      }
+      setIsLoading(false);
+    };
+
+    fetchParkingData();
+  }, []);
+
+  if (isLoading) return <div>Loading...</div>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <header>Your App Name</header>
+        <div className="parking-lot-container">
+          {parkingLots.map(lot => (
+              <ParkingLotCard key={lot.name} data={lot} />
+          ))}
+        </div>
+      </div>
   );
 }
+
+function ParkingLotCard({ data }) {
+    // Assign a class based on the availability
+    const statusClass = `parking-lot-card ${data.availability}`;
+
+    return (
+        <div className={statusClass}>
+            <h2>{data.name}</h2>
+        </div>
+    );
+}
+
 
 export default App;
