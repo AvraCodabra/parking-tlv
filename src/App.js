@@ -44,6 +44,7 @@ function ParkingLotCard({ data }) {
     return (
         <div className={statusClass}>
             <h2>{data.name}</h2>
+            <p>{data.status}</p>
         </div>
     );
 }
