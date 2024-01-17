@@ -1,5 +1,3 @@
-const pRetry = require('p-retry');
-
 const HOME_LOC = {
     lat:32.0873,
     lon:34.7737,
@@ -37,8 +35,9 @@ function getAvailability(status_chenyon) {
         case 'מלא':
         case 'סגור':
             return 'full';
+        default:
+            return 'NA';
     }
-    return 'NA';
 }
 
 function getDist(a,b){
@@ -92,7 +91,7 @@ const fetch_retry = async (url, n) => {
     let response = await fetch(url)
     if (!response.ok) {
         console.log(response)
-        if (n === 1) throw "can't fatch"
+        if (n === 1) throw Error("can't fetch")
         return await fetch_retry(url, n - 1);
     }
     return response
@@ -122,7 +121,7 @@ export async function getParkingServer(){
         return parkInfo
     });
 
-    parkingList = parkingList.filter((val) =>val.availability != 'NA');
+    parkingList = parkingList.filter((val) =>val.availability !== 'NA');
 
     //sort by location nearest to home
     parkingList.sort((a,b)=>getDist(HOME_LOC,a.location)>getDist(HOME_LOC,b.location) ?1:-1 );

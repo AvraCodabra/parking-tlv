@@ -10,8 +10,8 @@
 .cool-title {
   text-align: center;
   font-size: 2.5em; /* Large font size */
-  color: #4063af; /* Greenish color, you can choose any color you like */
-  font-weight: bold;
+  font-family: "AmericanTypewriter", "American Typewriter", Raleway Dots, cursive;
+  color: hsl(0, 0%, 10%); /* Greenish color, you can choose any color you like */
   margin: 5px 0;
   padding: 10px;
   border-radius: 10px;
@@ -53,24 +53,46 @@
 }
 
 .parking-lot-card {
+  display: flex; /* Enables Flexbox */
+  flex-direction: column; /* Stacks children vertically */
+  align-items: center; /* Horizontally centers the content */
+  justify-content: center; /* Vertically centers the content */
+  text-align: center; /* Center text alignment */
   border: none; /* Remove border */
   border-radius: 10px; /* Rounded corners */
   width: 280px; /* Adjust width */
   background-color: #fff; /* White background for cards */
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.15); /* Softer shadow */
   transition: transform 0.3s, box-shadow 0.3s; /* Animate shadow and transform */
+  padding: 10px; /* Add padding */
 }
 
+.parking-lot-card h2 {
+  color: #1a1a1a; /* Use the header color for titles */
+  font-size: 16px; /* Reduced font size for title */
+  margin-bottom: 0px; /* Reduced space below title */
+  /* Ensure H2 takes full width for proper centering */
+  width: 100%;
+}
+
+.parking-lot-card p {
+  text-align: left; /* Align the <p> to the left */
+  width: 100%; /* Ensure P takes full width */
+  margin: 0; /* Remove default margin */
+  align-self: flex-start; /* Align to the start of the flex container */
+}
+
+
 .parking-lot-card.free {
-  background-color: #35a247; /* Green for free */
+  background-color: #6BD183; /* Green for free */
 }
 
 .parking-lot-card.almostFull {
-  background-color: #ffc107; /* Orange for almost full */
+  background-color: #A8CCB0; /* Orange for almost full */
 }
 
 .parking-lot-card.full {
-  background-color: #da4556; /* Red for full */
+  background-color: #CECECE; /* Red for full */
 }
 
 .parking-lot-card:hover {
@@ -78,11 +100,7 @@
   box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
 }
 
-.parking-lot-card h2 {
-  color: #1a1a1a; /* Use the header color for titles */
-  font-size: 16px; /* Reduced font size for title */
-  margin-bottom: 5px; /* Reduced space below title */
-}
+
 
 .parking-lot-card p {
   color: #333; /* Darker text for readability */

@@ -93,9 +93,10 @@ function ParkingLotCard({ data }) {
     const statusClass = `parking-lot-card ${data.availability}`;
 
     return (
-        <a href={wazeURL(data.location)} target="_blank" className="link-wrapper">
+        <a href={wazeURL(data.location)} className="link-wrapper">
             <div className={statusClass}>
-                <h2>{data.name}</h2> <p>{data.status}</p>
+                <h2>{data.name}</h2>
+                <p>{data.status}</p>
             </div>
         </a>
     );
