@@ -76,16 +76,81 @@
   margin: 10px 0; /* Adds some margin */
 }
 
-/* Style for the dropdown arrow */
-.modern-select::-ms-expand {
-  display: none;
+.select-wrapper {
+  position: relative;
+  display: inline-block;
 }
 
-/* Optional: Style to change the arrow icon (requires additional HTML & CSS) */
-.modern-select-arrow {
+.modern-select {
+  padding: 10px 30px 10px 10px; /* Add more padding on the right for the arrow */
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: white;
+  appearance: none; /* Removes default styling */
+  outline: none;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.modern-select:hover, .modern-select:focus {
+  border-color: #aaa; /* Slightly darker border on hover/focus */
+}
+
+/* Style for the custom arrow */
+.select-arrow {
   position: absolute;
   right: 10px;
-  top: calc(50% - 3px); /* Center vertically */
+  top: 50%;
+  transform: translateY(-50%);
   pointer-events: none; /* Makes sure clicks on the arrow still open the dropdown */
+  color: #333;
+  font-size: 20px;
 }
+
+/* Hide the native arrow in Firefox */
+.modern-select::-moz-focus-outer {
+  border: 0;
+}
+
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh; /* This will center the loader vertically on the page */
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1); /* Light grey border */
+  border-top: 4px solid #333; /* Darker color for the spinning part */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.error-message-button {
+  background-color: #dc3545; /* Red background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px 0;
+  transition: background-color 0.3s;
+}
+
+.error-message-button:hover {
+  background-color: #bd2130; /* Darker red on hover */
+}
+
 

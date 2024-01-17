@@ -11,21 +11,23 @@ function App() {
     ];
     const [selectedLocation, setSelectedLocation] = useState(locations[0].location);
     const [parkingLots, setParkingLots] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
     const fetchParkingData = async () => {
-      try {
-        const data = await getParkinglots(selectedLocation);
-        setParkingLots(data);
-      } catch (error) {
-        console.error('Error fetching parking data:', error);
-      }
-      setIsLoading(false);
+        setIsLoading(true); // Start loading
+        try {
+            const data = await getParkinglots(selectedLocation);
+            setParkingLots(data);
+        } catch (error) {
+            console.error('Error fetching parking data:', error);
+        } finally {
+        setIsLoading(false); // Stop loading regardless of success or failure
+    }
     };
 
+  useEffect(() => {
     fetchParkingData();
-  }, [selectedLocation]);
+  }, []);
 
     const handleLocationChange = (event) => {
         const location = locations.find(loc => loc.name === event.target.value).location;
@@ -33,23 +35,53 @@ function App() {
         setParkingLots(sortNearMe(parkingLots, location))
     };
 
-  if (isLoading) return <div>Loading...</div>;
 
-  return (
-      <div className="App">
-          <header>Parking To The People</header>
-          <select onChange={handleLocationChange} className="modern-select">
-              {locations.map(loc => (
-                  <option key={loc.name} value={loc.name}>{loc.name}</option>
-              ))}
-          </select>
-        <div className="parking-lot-container">
-          {parkingLots.map(lot => (
-              <ParkingLotCard key={lot.name} data={lot} />
-          ))}
+    function loadingComponent() {
+        return <div className="loading-indicator">
+            <div className="spinner"></div>
+        </div>;
+    }
+
+    function isDataReady() {
+        return parkingLots.length !== 0;
+    }
+
+    function ParkingLotListComponent() {
+        return <div>
+            <div className="select-wrapper">
+                <select onChange={handleLocationChange} className="modern-select">
+                    {locations.map(loc => (
+                        <option key={loc.name} value={loc.name}>{loc.name}</option>
+                    ))}
+                </select>
+                <span className="select-arrow">&#9662;</span> {/* Downward arrow symbol */}
+            </div>
+            <div className="parking-lot-container">
+                {parkingLots.map(lot => (
+                    <ParkingLotCard key={lot.name} data={lot}/>
+                ))}
+            </div>
+        </div>;
+    }
+
+    function errorRefreshButton() {
+        return <button className="error-message-button"
+                       onClick={fetchParkingData}
+        >
+            תקלה בגישה לחניונים, לחץ שוב לרענון
+        </button>;
+    }
+
+    return (
+        <div className="App">
+            {isLoading ? loadingComponent() : (
+                <div>
+                    {isDataReady() ? ParkingLotListComponent() : errorRefreshButton()}
+                </div>
+            )}
         </div>
-      </div>
-  );
+    );
+
 }
 
 function ParkingLotCard({ data }) {
