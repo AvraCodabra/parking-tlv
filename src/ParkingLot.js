@@ -78,7 +78,7 @@ export async function getParkinglots(myLocation){
 }
 
 export function sortNearMe(parkingList, myLocation) {
-    parkingList.sort((a,b)=>getDist(myLocation,a.location)>getDist(myLocation,b.location) ?1:-1 );
+    return parkingList.sort((a,b)=>getDist(myLocation,a.location)>getDist(myLocation,b.location) ?1:-1 );
 }
 
 async function fetchJason(url) {

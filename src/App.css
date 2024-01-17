@@ -29,8 +29,6 @@
 .parking-lot-card {
   border: none; /* Remove border */
   border-radius: 10px; /* Rounded corners */
-  padding: 5px;
-  margin: 5px;
   width: 280px; /* Adjust width */
   background-color: #fff; /* White background for cards */
   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.15); /* Softer shadow */
@@ -56,12 +54,38 @@
 
 .parking-lot-card h2 {
   color: #1a1a1a; /* Use the header color for titles */
-  margin-bottom: 10px; /* Space below title */
+  font-size: 16px; /* Reduced font size for title */
+  margin-bottom: 5px; /* Reduced space below title */
 }
 
 .parking-lot-card p {
   color: #333; /* Darker text for readability */
-  line-height: 1.6; /* Improve line spacing */
+  font-size: 14px; /* Reduced font size for paragraph */
+  line-height: 1; /* Adjusted line spacing */
 }
 
-/* Add additional styles below as needed */
+.modern-select {
+  padding: 10px 15px;
+  border: 2px solid #ddd; /* Light grey border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Larger font size */
+  background-color: white;
+  appearance: none; /* Removes default styling */
+  outline: none; /* Removes the outline */
+  cursor: pointer; /* Changes cursor to pointer */
+  margin: 10px 0; /* Adds some margin */
+}
+
+/* Style for the dropdown arrow */
+.modern-select::-ms-expand {
+  display: none;
+}
+
+/* Optional: Style to change the arrow icon (requires additional HTML & CSS) */
+.modern-select-arrow {
+  position: absolute;
+  right: 10px;
+  top: calc(50% - 3px); /* Center vertically */
+  pointer-events: none; /* Makes sure clicks on the arrow still open the dropdown */
+}
+
