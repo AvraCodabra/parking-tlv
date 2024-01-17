@@ -7,6 +7,28 @@
   color: #333; /* Dark grey text for better readability */
 }
 
+.cool-title {
+  text-align: center;
+  font-size: 2.5em; /* Large font size */
+  color: #4063af; /* Greenish color, you can choose any color you like */
+  font-weight: bold;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1); /* Light background for contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slight text shadow for readability */
+  transform: skew(-10deg); /* Slight skew for a dynamic look */
+}
+
+@media (max-width: 768px) {
+  .cool-title {
+    font-size: 1.5em; /* Smaller font size on smaller screens */
+    transform: skew(0deg); /* Remove skew on smaller screens for better readability */
+  }
+}
+
+
 .header {
   min-height: 15vh; /* Slightly larger header */
   display: flex;
@@ -22,8 +44,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
-  gap: 20px; /* Add gap between cards */
+  gap: 15px; /* Add gap between cards */
 }
 
 .parking-lot-card {

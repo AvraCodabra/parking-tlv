@@ -74,6 +74,10 @@ function App() {
 
     return (
         <div className="App">
+            <div className="cool-title">
+                Parking To The People
+            </div>
+
             {isLoading ? loadingComponent() : (
                 <div>
                     {isDataReady() ? ParkingLotListComponent() : errorRefreshButton()}
