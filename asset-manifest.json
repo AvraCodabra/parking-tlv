@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/parking-tlv/static/css/main.66c0e48f.css",
-    "main.js": "/parking-tlv/static/js/main.2d329833.js",
+    "main.css": "/parking-tlv/static/css/main.94c0f606.css",
+    "main.js": "/parking-tlv/static/js/main.79890ca0.js",
     "static/js/787.fd23feb8.chunk.js": "/parking-tlv/static/js/787.fd23feb8.chunk.js",
     "index.html": "/parking-tlv/index.html",
-    "main.66c0e48f.css.map": "/parking-tlv/static/css/main.66c0e48f.css.map",
-    "main.2d329833.js.map": "/parking-tlv/static/js/main.2d329833.js.map",
+    "main.94c0f606.css.map": "/parking-tlv/static/css/main.94c0f606.css.map",
+    "main.79890ca0.js.map": "/parking-tlv/static/js/main.79890ca0.js.map",
     "787.fd23feb8.chunk.js.map": "/parking-tlv/static/js/787.fd23feb8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.66c0e48f.css",
-    "static/js/main.2d329833.js"
+    "static/css/main.94c0f606.css",
+    "static/js/main.79890ca0.js"
   ]
 }
