@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {getParkinglots, sortNearMe} from "./ParkingLot";
+import {getParkinglots, sortNearMe, wazeURL} from "./ParkingLot";
 import './App.css'
 
 function App() {
@@ -93,10 +93,11 @@ function ParkingLotCard({ data }) {
     const statusClass = `parking-lot-card ${data.availability}`;
 
     return (
-        <div className={statusClass}>
-            <h2>{data.name}</h2>
-            <p>{data.status}</p>
-        </div>
+        <a href={wazeURL(data.location)} target="_blank" className="link-wrapper">
+            <div className={statusClass}>
+                <h2>{data.name}</h2> <p>{data.status}</p>
+            </div>
+        </a>
     );
 }
 

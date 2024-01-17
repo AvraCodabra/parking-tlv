@@ -40,6 +40,11 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3); /* Add shadow to header */
 }
 
+.link-wrapper {
+  text-decoration: none; /* Removes underline from links */
+  color: inherit; /* Keeps the text color the same as the div */
+}
+
 .parking-lot-container {
   display: flex;
   flex-wrap: wrap;

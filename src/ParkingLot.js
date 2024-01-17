@@ -98,6 +98,10 @@ const fetch_retry = async (url, n) => {
     return response
 };
 
+export function wazeURL(location){
+    return "https://waze.com/ul?ll="+location.lat+","+location.lon+"&navigate=yes";
+}
+
 //for v2 - using my own server
 const localStationsStatus = 'http://127.0.0.1:8000/api/liveStatus/';
 export async function getParkingServer(){
